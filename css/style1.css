@@ -1,0 +1,58 @@
+ body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, gray 0%, #764b27 100%);
+            color: white;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            text-align: center;
+        }
+        /*.home, .about, .services, .login {
+            border : 3px solid yellow;
+            border-radius : 0px;   
+            border-width: 3px; 
+            border-style: outset;
+        } */
+        .Navigation {
+            margin-left: 69%;
+        }
+        nav a {
+            color : white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            flex: 1;
+            padding: 40px;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-family: arial black ;
+            color : white;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            padding: 10px;
+        }
