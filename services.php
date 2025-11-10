@@ -8,6 +8,7 @@
 </head>
 <body>
     <header>
+        <!--ganti jadi php-->
         <h1>Selamat Datang di Dunia Musik dan Kreativitas</h1>
         <div class="Navigation">
             <nav> 
