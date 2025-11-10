@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Musik dan Kreativitas</title>
+    <link rel="stylesheet" href="css/aboutcss.css"> 
+</head>
+<body>
+    <header>
+        <h1>Selamat Datang di Dunia Musik dan Kreativitas</h1>
+        <div class="Navigation">
+            <nav> 
+                <a href="index.html" class="home">Home</a>
+                <a href="about.html" class="about">About</a>
+                <a href="services.html" class="services">Services</a>
+                <a href="login.html" class="login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2><i class="fas fa-info-circle"></i> Tentang Kami</h2>
+        <p>Website ini didedikasikan untuk para pecinta musik dan kreativitas. Kami menyediakan platform untuk berbagi inspirasi, tutorial, dan karya seni musik.</p>
+        
+        <section class="music-section">
+            <h3>Misi Kami</h3>
+            <ul>
+                <li>Mendorong kreativitas melalui musik dan seni.</li>
+                <li>Menyediakan galeri lagu dan playlist untuk semua genre.</li>
+                <li>Menawarkan tutorial untuk pemula dan profesional.</li>
+            </ul>
+        </section>
+        
+        <section class="music-section">
+            <h3>Tim Kami</h3>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="music-card">
+                        <i class="fas fa-user"></i>
+                        <h5>Founder</h5>
+                        <p>Maryo</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="music-card">
+                        <i class="fas fa-user"></i>
+                        <h5>Designer</h5>
+                        <p>Maryo</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="music-card">
+                        <i class="fas fa-user"></i>
+                        <h5>Developer</h5>
+                        <p>Maryo</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="music-card">
+                        <i class="fas fa-user"></i>
+                        <h5>Content Creator</h5>
+                        <p>Maryo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="music-section">
+            <h3>Pengumpulan Data Alat Musik</h3>
+            <div class="container">
+                <p>Beritahu kami jenis alat musik apa yang Anda sukai untuk rekomendasi yang lebih personal.</p>
+                <div class="form-container">
+                    <form id="instrumentForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nama:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="instrument">Jenis Alat Musik:</label>
+                            <select id="instrument" name="instrument" required>
+                                <option value="">Pilih Alat Musik</option>
+                                <option value="gitar">Gitar</option>
+                                <option value="piano">Piano</option>
+                                <option value="drum">Drum</option>
+                                <option value="bass">Bass</option>
+                                <option value="violin">Violin</option>
+                                <option value="flute">Flute</option>
+                                <option value="saxophone">Saxophone</option>
+                                <option value="trumpet">Trumpet</option>
+                                <option value="other">Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                    <label for="message"><i class="fas fa-comment"></i> Pesan Tambahan (Opsional):</label>
+                    <textarea id="message" name="message" rows="1" placeholder="Berikan komentar atau saran"></textarea>
+                </div>
+                <button type="submit" class="play-btn">Kirim Data</button>
+            </form>
+        </div>
+    </div>
+</section>>
+
+
+    <footer>
+        <p>&copy; 2025 Musik dan Kreativitas. Semua hak dilindungi.</p>
+    </footer>
+
+<div id="notification" class="notification-container">
+    <div class="notification-content">
+        <p id="notificationMessage">Data berhasil dikirim!</p>
+        <button id="closeNotification" class="close-btn">Tutup</button>
+    </div>
+</div>
+
+    <script>
+        // Elemen DOM
+        const instrumentForm = document.getElementById('instrumentForm');
+        const notification = document.getElementById('notification');
+        const notificationMessage = document.getElementById('notificationMessage');
+        const closeNotification = document.getElementById('closeNotification');
+
+// Event: Klik tombol submit
+instrumentForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const instrument = document.getElementById('instrument').value;
+    
+    if (name === '' || email === '' || instrument === '') {
+        showNotification('Harap isi semua field!', 'error');
+        return;
+    }
+    
+    // Simulasi pengiriman (atau gunakan Fetch seperti sebelumnya)
+    console.log('Data dikirim:', { name, email, instrument });
+    instrumentForm.reset();
+    showNotification('Data berhasil dikirim!', 'success');
+});
+
+// Fungsi untuk tampilkan notifikasi dari atas
+function showNotification(message, type = 'success') {
+    notificationMessage.textContent = message;
+    notification.className = `notification-container ${type}`;
+    notification.style.display = 'block';
+    
+    // Sembunyikan otomatis setelah 5 detik, atau klik tombol
+    setTimeout(() => {
+        notification.style.display = 'none';
+    }, 5000);
+}
+
+// Event: Klik tombol "Tutup" di notifikasi
+closeNotification.addEventListener('click', function() {
+    notification.style.display = 'none';
+});
+    </script>
+    
+    <script>
+    // Elemen DOM
+    const instrumentForm = document.getElementById('instrumentForm');
+    const notification = document.getElementById('notification');
+    const notificationMessage = document.getElementById('notificationMessage');
+    const closeNotification = document.getElementById('closeNotification');
+    
+    // Event: Klik tombol submit (dengan validasi)
+    instrumentForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const instrument = document.getElementById('instrument').value;
+        
+        if (name === '' || email === '' || instrument === '') {
+            showNotification('Harap isi semua field!', 'error');
+            return;
+        }
+        
+        // Panggil fungsi asynchronous untuk kirim data
+        submitDataAsync();
+    });
+    
+    // Fungsi Asynchronous dengan Promise dan Fetch
+    function submitDataAsync() {
+        const data = {
+            name: document.getElementById('name').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            instrument: document.getElementById('instrument').value,
+            message: document.getElementById('message').value.trim()
+        };
+        
+        // Asynchronous Fetch dengan Promise
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // Promise resolve
+        })
+        .then(result => {
+            console.log('Data berhasil dikirim (Asynchronous):', result);
+            // Web Storage: Simpan data ke localStorage
+            localStorage.setItem('userData', JSON.stringify(data));
+            instrumentForm.reset();
+            showNotification('Data berhasil dikirim dan disimpan!', 'success');
+        })
+        .catch(error => {
+            console.error('Error (Asynchronous):', error);
+            showNotification('Gagal mengirim data. Coba lagi.', 'error');
+        });
+    }
+    
+    // Fungsi untuk tampilkan notifikasi dari atas
+    function showNotification(message, type = 'success') {
+        notificationMessage.textContent = message;
+        notification.className = `notification-container ${type}`;
+        notification.style.display = 'block';
+        
+        // Sembunyikan otomatis setelah 5 detik
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 5000);
+    }
+    
+    // Event: Klik tombol "Tutup"
+    closeNotification.addEventListener('click', function() {
+        notification.style.display = 'none';
+    });
+</script>
+</body>
+</html>

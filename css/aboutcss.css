@@ -1,0 +1,163 @@
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, gray 0%, #764b27 100%);
+            color: white;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            text-align: center;
+        }
+        .Navigation {
+            margin-left: 69%;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            flex: 1;
+            padding: 40px;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-family: arial black;
+            color: white;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Gaya tambahan untuk elemen musik, disesuaikan dengan tema baru */
+        .music-section {
+            margin-bottom: 40px;
+        }
+        .music-card {
+            background: rgba(255, 255, 255, 0.1); /* Sesuai dengan li, transparan */
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .music-card:hover {
+            transform: translateY(-5px);
+        }
+        .music-card i {
+            font-size: 3rem;
+            color: white; /* Sesuai tema gelap */
+            margin-bottom: 10px;
+        }
+        .song-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .song-item {
+            background: rgba(255, 255, 255, 0.1); /* Sesuai dengan li */
+            border-radius: 5px;
+            padding: 15px;
+            transition: transform 0.3s ease;
+        }
+        .song-item:hover {
+            transform: translateY(-5px);
+        }
+        .play-btn {
+            background: rgba(255, 255, 255, 0.2); /* Sesuai tema, transparan */
+            border: 1px solid white;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .play-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .col-md-3 {
+            flex: 1 1 300px;
+            max-width: 300px;
+        }
+        
+.form-group select {
+    width: 20%;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+.form-group select option {
+    background: #333;
+    color: white;
+}
+/* --- Notification Container (Muncul dari Atas) --- */
+.notification-container {
+    display: none;
+    position: fixed;
+    top: 30px; /* Muncul dari atas */
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    text-align: center;
+    color: #333;
+    z-index: 1000;
+    animation: slideDown 0.5s ease;
+}
+.notification-container.success .notification-content {
+    border-left: 5px solid #000000;
+}
+.notification-container.error .notification-content {
+    border-left: 5px solid #000000;
+}
+.close-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+.close-btn:hover {
+    background: #555;
+}
+@keyframes slideDown {
+    from { top: 0; opacity: 0; }
+    to { top: 30px; opacity: 1; }
+}

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Musik dan Kreativitas</title>
+    <link rel="stylesheet" href="css/services.css">
+</head>
+<body>
+    <header>
+        <h1>Selamat Datang di Dunia Musik dan Kreativitas</h1>
+        <div class="Navigation">
+            <nav> 
+                <a href="index.html" class="home">Home</a>
+                <a href="about.html" class="about">About</a>
+                <a href="services.html" class="services">Services</a> <!-- Link ke halaman ini -->
+                <a href="login.html" class="login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2><i class="fas fa-cogs"></i> Layanan Kami</h2>
+        <p>Kami menyediakan berbagai layanan untuk mendukung kreativitas Anda dalam musik dan seni.</p>
+        
+        <section class="music-section">
+            <h3>Layanan Unggulan</h3>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="music-card">
+                        <i class="fas fa-music"></i>
+                        <h5>Galeri Musik</h5>
+                        <p>Upload dan bagikan lagu Anda dengan komunitas.</p>
+                        <a href="music-page.html" class="play-btn" style="display: inline-block; text-decoration: none;">Jelajahi</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="music-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h5>Tutorial Kreativitas</h5>
+                        <p>Pelajari teknik musik dari ahli.</p>
+                        <button class="play-btn">Daftar</button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="music-card">
+                        <i class="fas fa-users"></i>
+                        <h5>Konsultasi Artis</h5>
+                        <p>Dapatkan saran pribadi untuk karir musik Anda.</p>
+                        <button class="play-btn">Hubungi</button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="music-card">
+                        <i class="fas fa-tools"></i>
+                        <h5>Alat Musik Digital</h5>
+                        <p>Akses tools online untuk produksi musik.</p>
+                        <button class="play-btn">Coba Gratis</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="music-section">
+            <h3>Paket Layanan</h3>
+            <div class="song-list">
+                <div class="song-item">
+                    <h5>Paket Pemula</h5>
+                    <p>Akses galeri dasar dan 5 tutorial gratis.</p>
+                    <p>Harga: Rp 50.000/bulan</p>
+                    <button class="play-btn">Pilih Paket</button>
+                </div>
+                <div class="song-item">
+                    <h5>Paket Pro</h5>
+                    <p>Konsultasi unlimited dan tools premium.</p>
+                    <p>Harga: Rp 150.000/bulan</p>
+                    <button class="play-btn">Pilih Paket</button>
+                </div>
+                <div class="song-item">
+                    <h5>Paket Premium</h5>
+                    <p>Semua fitur plus dukungan 24/7.</p>
+                    <p>Harga: Rp 300.000/bulan</p>
+                    <button class="play-btn">Pilih Paket</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="music-section">
+            <h3>Pertanyaan Umum</h3>
+            <ul>
+                <li>Bagaimana cara upload lagu? Klik "Galeri Musik" dan ikuti panduan.</li>
+                <li>Apakah ada biaya untuk tutorial? Beberapa gratis, lainnya berbayar.</li>
+                <li>Siapa yang bisa konsultasi? Semua anggota terdaftar.</li>
+            </ul>
+        </section>
+        
+        <section class="music-section">
+            <h3>Hubungi Kami</h3>
+            <div class="container">
+                <p>Kirim pesan untuk pertanyaan atau dukungan.</p>
+                <div class="form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nama:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan:</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="play-btn">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Musik dan Kreativitas. Semua hak dilindungi.</p>
+    </footer>
+
+    <!-- Notification Container -->
+    <div id="notification" class="notification-container">
+        <div class="notification-content">
+            <p id="notificationMessage">Pesan berhasil dikirim!</p>
+            <button id="closeNotification" class="close-btn">Tutup</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript untuk handle submit dengan Fetch ke PHP
+        const contactForm = document.getElementById('contactForm');
+        const notification = document.getElementById('notification');
+        const notificationMessage = document.getElementById('notificationMessage');
+        const closeNotification = document.getElementById('closeNotification');
+        
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Cegah submit default
+            
+            const formData = new FormData(contactForm);
+            
+            // Kirim data dengan Fetch (asynchronous) ke PHP
+            fetch('process_services_form.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    contactForm.reset();
+                    showNotification(data.message, 'success');
+                } else {
+                    showNotification(data.message, 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showNotification('Terjadi kesalahan. Coba lagi.', 'error');
+            });
+        });
+        
+        // Fungsi untuk tampilkan notification
+        function showNotification(message, type = 'success') {
+            notificationMessage.textContent = message;
+            notification.className = `notification-container ${type}`;
+            notification.style.display = 'flex';
+            
+            // Sembunyikan otomatis setelah 5 detik
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Event: Klik tombol "Tutup"
+        closeNotification.addEventListener('click', function() {
+            notification.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
